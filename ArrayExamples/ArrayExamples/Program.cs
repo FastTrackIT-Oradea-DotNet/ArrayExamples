@@ -7,7 +7,7 @@ namespace ArrayExamples
     {
         static void Main(string[] args)
         {
-            ReadMatricesAndCalculateSum();
+            ReadMatricesAndCalculateProduct();
         }
 
         private static void ReadAndPrintVector()
@@ -155,6 +155,27 @@ namespace ArrayExamples
             ConsoleHelper.PrintMatrix("Matrix1", matrix1);
             ConsoleHelper.PrintMatrix("Matrix2", matrix2);
             ConsoleHelper.PrintMatrix("Sum", sum);
+        }
+
+        private static void ReadMatricesAndCalculateProduct()
+        {
+            int[,] matrix1 = ConsoleHelper.ReadMatrixFromConsole("Matrix1");
+            int[,] matrix2 = ConsoleHelper.ReadMatrixFromConsole("Matrix2");
+
+            int[,] prod = MatrixHelper.Product(matrix1, matrix2);
+
+
+            ConsoleHelper.PrintMatrix("Matrix1", matrix1);
+            ConsoleHelper.PrintMatrix("Matrix2", matrix2);
+            ConsoleHelper.PrintMatrix("Product", prod);
+
+            /*
+             * Example:
+             * 
+             (0  1)   (1  1  1  1) = (0  0  0  0)
+             (2  2) X (0  0  0  0)   (2  2  2  2)
+             (1  3)                  (1  1  1  1)
+            */
         }
     }
 }

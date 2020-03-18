@@ -127,5 +127,38 @@ namespace ArrayExamples.Library
 
             return result;
         }
+
+        public static int[,] Product(int[,] matrix1, int[,] matrix2)
+        {
+            int rowCount1 = GetRowsCount(matrix1);
+            int colCount1 = GetColsCount(matrix1);
+
+            int rowCount2 = GetRowsCount(matrix2);
+            int colCount2 = GetColsCount(matrix2);
+
+            if (colCount1 != rowCount2)
+            {
+                throw new Exception($"Number of Columns ({colCount1}) from Matrix1 must be equal with the number of rows ({rowCount2}) from Matrix2!");
+            }
+
+            int[,] result = new int[rowCount1, colCount2];
+
+            for (int row = 0; row < rowCount1; row++)
+            {
+                for (int col = 0; col < colCount2; col++)
+                {
+                    int sum = 0;
+
+                    for (int k = 0; k < colCount1; k++)
+                    {
+                        sum += matrix1[row, k] * matrix2[k, col];
+                    }
+
+                    result[row, col] = sum;
+                }
+            }
+
+            return result;
+        }
     }
 }
