@@ -7,7 +7,7 @@ namespace ArrayExamples
     {
         static void Main(string[] args)
         {
-            ReadMatrixAndPrintMinAndMax();
+            ReadMatricesAndCalculateSum();
         }
 
         private static void ReadAndPrintVector()
@@ -142,6 +142,19 @@ namespace ArrayExamples
             ConsoleHelper.PrintMatrix("Matrix", matrix);
             Console.WriteLine($"Min element={min}");
             Console.WriteLine($"Max element={max}");
+        }
+
+        private static void ReadMatricesAndCalculateSum()
+        {
+            int[,] matrix1 = ConsoleHelper.ReadMatrixFromConsole("Matrix1");
+            int[,] matrix2 = ConsoleHelper.ReadMatrixFromConsole("Matrix2");
+
+            int[,] sum = MatrixHelper.Sum(matrix1, matrix2);
+
+
+            ConsoleHelper.PrintMatrix("Matrix1", matrix1);
+            ConsoleHelper.PrintMatrix("Matrix2", matrix2);
+            ConsoleHelper.PrintMatrix("Sum", sum);
         }
     }
 }

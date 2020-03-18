@@ -42,7 +42,7 @@ namespace ArrayExamples.Library
 
             int[] result = new int[actualDimension];
 
-            for (int col = colCount -1, row = 0; (col >= 0) && (row < rowCount); col--, row++)
+            for (int col = colCount - 1, row = 0; (col >= 0) && (row < rowCount); col--, row++)
             {
                 result[row] = matrix[row, col];
             }
@@ -100,6 +100,32 @@ namespace ArrayExamples.Library
             }
 
             return int.MaxValue;
+        }
+
+        public static int[,] Sum(int[,] matrix1, int[,] matrix2)
+        {
+            int rowCount1 = GetRowsCount(matrix1);
+            int colCount1 = GetColsCount(matrix1);
+
+            int rowCount2 = GetRowsCount(matrix2);
+            int colCount2 = GetColsCount(matrix2);
+
+            if ((rowCount1 != rowCount2) || (colCount1 != colCount2))
+            {
+                throw new Exception($"Matrix1 ({rowCount1} X {colCount1}) doesn't have the same dimension as Matrix2 ({rowCount2} X {colCount2})!");
+            }
+
+            int[,] result = new int[rowCount1, colCount1];
+
+            for (int row = 0; row < rowCount1; row++)
+            {
+                for (int col = 0; col < colCount1; col++)
+                {
+                    result[row, col] = matrix1[row, col] + matrix2[row, col];
+                }
+            }
+
+            return result;
         }
     }
 }
