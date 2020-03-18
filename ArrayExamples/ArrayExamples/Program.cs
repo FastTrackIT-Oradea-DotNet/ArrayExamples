@@ -7,7 +7,7 @@ namespace ArrayExamples
     {
         static void Main(string[] args)
         {
-            ReadVectorAndCalculateMinElement();
+            ReadVectorAndCalculateAvgElement();
         }
 
         private static void ReadAndPrintVector()
@@ -47,6 +47,15 @@ namespace ArrayExamples
             int min = ArrayHelper.Min(array);
 
             Console.WriteLine($"Min Element Is: {min}");
+        }
+
+        private static void ReadVectorAndCalculateAvgElement()
+        {
+            int[] array = ConsoleHelper.ReadArrayFromConsole("Array");
+
+            int avg = ArrayHelper.Avg(array);
+
+            Console.WriteLine($"Avg Element Is: {avg}");
         }
     }
 }
