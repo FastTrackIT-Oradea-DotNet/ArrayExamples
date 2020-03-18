@@ -160,5 +160,98 @@ namespace ArrayExamples.Library
 
             return result;
         }
+
+        public static int[,] Transpose(int[,] matrix)
+        {
+            int rowCount = GetRowsCount(matrix);
+            int colCount = GetColsCount(matrix);
+
+
+            int[,] result = new int[colCount, rowCount];
+
+            for (int row = 0; row < rowCount; row++)
+            {
+                for (int col = 0; col < colCount; col++)
+                {
+                    result[col, row] = matrix[row, col];
+                }
+            }
+
+            return result;
+        }
+
+        public static bool IsIdentity(int[,] matrix)
+        {
+            int rowCount = GetRowsCount(matrix);
+            int colCount = GetColsCount(matrix);
+
+            if ((rowCount > 0) && (colCount > 0))
+            {
+                for (int row = 0; row < rowCount; row++)
+                {
+                    for (int col = 0; col < colCount; col++)
+                    {
+                        if (row == col)
+                        {
+                            if (matrix[row, col] != 1)
+                            {
+                                return false;
+                            }
+                        }
+                        else
+                        {
+                            if (matrix[row, col] != 0)
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public static int SumRow(int[,] matrix, int rowIndex)
+        {
+            int rowCount = GetRowsCount(matrix);
+            int colCount = GetColsCount(matrix);
+
+            if ((rowCount > 0) && (colCount > 0) && (rowIndex >= 0) && (rowIndex < rowCount))
+            {
+                int sum = 0;
+
+                for (int col = 0; col < colCount; col++)
+                {
+                    sum += matrix[rowIndex, col];
+                }
+
+                return sum;
+            }
+
+            return 0;
+        }
+
+        public static int SumCol(int[,] matrix, int colIndex)
+        {
+            int rowCount = GetRowsCount(matrix);
+            int colCount = GetColsCount(matrix);
+
+            if ((rowCount > 0) && (colCount > 0) && (colIndex >= 0) && (colIndex < colCount))
+            {
+                int sum = 0;
+
+                for (int row = 0; row < rowCount; row++)
+                {
+                    sum += matrix[row, colIndex];
+                }
+
+                return sum;
+            }
+
+            return 0;
+        }
     }
 }
