@@ -7,7 +7,7 @@ namespace ArrayExamples
     {
         static void Main(string[] args)
         {
-            ReadVectorAndCalculateMaxElement();
+            ReadVectorAndCalculateMinElement();
         }
 
         private static void ReadAndPrintVector()
@@ -38,6 +38,15 @@ namespace ArrayExamples
             int max = ArrayHelper.Max(array);
 
             Console.WriteLine($"Max Element Is: {max}");
+        }
+
+        private static void ReadVectorAndCalculateMinElement()
+        {
+            int[] array = ConsoleHelper.ReadArrayFromConsole("Array");
+
+            int min = ArrayHelper.Min(array);
+
+            Console.WriteLine($"Min Element Is: {min}");
         }
     }
 }
