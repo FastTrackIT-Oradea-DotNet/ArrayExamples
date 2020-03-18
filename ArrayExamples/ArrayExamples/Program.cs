@@ -7,7 +7,7 @@ namespace ArrayExamples
     {
         static void Main(string[] args)
         {
-            ReadVectorAndExtractSubArray();
+            ReadVectorAndRemoveSubArray();
         }
 
         private static void ReadAndPrintVector()
@@ -69,6 +69,20 @@ namespace ArrayExamples
             int[] subArray = ArrayHelper.CopyRange(array, startIndex, length);
 
             ConsoleHelper.PrintArray("Sub Array", subArray);
+        }
+
+        private static void ReadVectorAndRemoveSubArray()
+        {
+            int[] array = ConsoleHelper.ReadArrayFromConsole("Array");
+
+            int startIndex = ConsoleHelper.ReadNumber("Start Index=", 3, 0);
+
+            int length = ConsoleHelper.ReadNumber("Length=", 3, 0);
+
+            int[] newArray = ArrayHelper.RemoveRange(array, startIndex, length);
+
+            ConsoleHelper.PrintArray("Original Array", array);
+            ConsoleHelper.PrintArray("New Array After Remove", newArray);
         }
     }
 }

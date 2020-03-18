@@ -96,6 +96,37 @@ namespace ArrayExamples.Library
 
             return result;
         }
+
+        public static int[] RemoveRange(int[] array, int startIndex, int length)
+        {
+            if (array is null)
+            {
+                return new int[] { };
+            }
+
+            if ((startIndex < 0) || (startIndex >= array.Length))
+            {
+                return array;
+            }
+
+            int actualLength = Math.Min(length, array.Length - startIndex);
+
+            int[] result = new int[array.Length - actualLength];
+
+            for (int i = 0, resultIndex = 0; i < array.Length; i++)
+            {
+                bool pickElement = (i < startIndex) ||
+                                    (i >= startIndex + actualLength);
+
+                if (pickElement)
+                {
+                    result[resultIndex] = array[i];
+                    resultIndex++;
+                }                
+            }
+
+            return result;
+        }
     }
 
 }
