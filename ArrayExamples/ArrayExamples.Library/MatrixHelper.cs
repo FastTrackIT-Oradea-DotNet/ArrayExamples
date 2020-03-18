@@ -32,5 +32,22 @@ namespace ArrayExamples.Library
 
             return result;
         }
+
+        public static int[] SecondaryDiagonal(int[,] matrix)
+        {
+            int rowCount = GetRowsCount(matrix);
+            int colCount = GetColsCount(matrix);
+
+            int actualDimension = Math.Min(rowCount, colCount);
+
+            int[] result = new int[actualDimension];
+
+            for (int col = colCount -1, row = 0; (col >= 0) && (row < rowCount); col--, row++)
+            {
+                result[row] = matrix[row, col];
+            }
+
+            return result;
+        }
     }
 }

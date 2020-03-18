@@ -7,7 +7,7 @@ namespace ArrayExamples
     {
         static void Main(string[] args)
         {
-            ReadMatrixAndPrintMainDiagonal();
+            ReadMatrixAndPrintSecondaryDiagonal();
         }
 
         private static void ReadAndPrintVector()
@@ -120,6 +120,16 @@ namespace ArrayExamples
 
             ConsoleHelper.PrintMatrix("Matrix", matrix);
             ConsoleHelper.PrintArray("Main Diagonal", mainDiagonal);
+        }
+
+        private static void ReadMatrixAndPrintSecondaryDiagonal()
+        {
+            int[,] matrix = ConsoleHelper.ReadMatrixFromConsole("Matrix");
+
+            int[] mainDiagonal = MatrixHelper.SecondaryDiagonal(matrix);
+
+            ConsoleHelper.PrintMatrix("Matrix", matrix);
+            ConsoleHelper.PrintArray("Secondary Diagonal", mainDiagonal);
         }
     }
 }
