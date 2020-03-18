@@ -49,5 +49,57 @@ namespace ArrayExamples.Library
 
             return result;
         }
+
+        public static int Min(int[,] matrix)
+        {
+            int rowCount = GetRowsCount(matrix);
+            int colCount = GetColsCount(matrix);
+
+            if ((rowCount > 0) && (colCount > 0))
+            {
+                int min = matrix[0, 0];
+
+                for (int row = 0; row < rowCount; row++)
+                {
+                    for (int col = 0; col < colCount; col++)
+                    {
+                        if (matrix[row, col] < min)
+                        {
+                            min = matrix[row, col];
+                        }
+                    }
+                }
+
+                return min;
+            }
+
+            return int.MaxValue;
+        }
+
+        public static int Max(int[,] matrix)
+        {
+            int rowCount = GetRowsCount(matrix);
+            int colCount = GetColsCount(matrix);
+
+            if ((rowCount > 0) && (colCount > 0))
+            {
+                int max = matrix[0, 0];
+
+                for (int row = 0; row < rowCount; row++)
+                {
+                    for (int col = 0; col < colCount; col++)
+                    {
+                        if (matrix[row, col] > max)
+                        {
+                            max = matrix[row, col];
+                        }
+                    }
+                }
+
+                return max;
+            }
+
+            return int.MaxValue;
+        }
     }
 }

@@ -7,7 +7,7 @@ namespace ArrayExamples
     {
         static void Main(string[] args)
         {
-            ReadMatrixAndPrintSecondaryDiagonal();
+            ReadMatrixAndPrintMinAndMax();
         }
 
         private static void ReadAndPrintVector()
@@ -130,6 +130,18 @@ namespace ArrayExamples
 
             ConsoleHelper.PrintMatrix("Matrix", matrix);
             ConsoleHelper.PrintArray("Secondary Diagonal", mainDiagonal);
+        }
+
+        private static void ReadMatrixAndPrintMinAndMax()
+        {
+            int[,] matrix = ConsoleHelper.ReadMatrixFromConsole("Matrix");
+
+            int min = MatrixHelper.Min(matrix);
+            int max = MatrixHelper.Max(matrix);
+
+            ConsoleHelper.PrintMatrix("Matrix", matrix);
+            Console.WriteLine($"Min element={min}");
+            Console.WriteLine($"Max element={max}");
         }
     }
 }
