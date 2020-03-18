@@ -1,4 +1,6 @@
-﻿namespace ArrayExamples.Library
+﻿using System;
+
+namespace ArrayExamples.Library
 {
     public static class ArrayHelper
     {
@@ -69,6 +71,30 @@
             int avg = Sum(array) / array.Length;
 
             return avg;
+        }
+
+        public static int[] CopyRange(int[] array, int startIndex, int length)
+        {
+            if (array is null)
+            {
+                return new int[] { };
+            }
+
+            if ((startIndex < 0) || (startIndex >= array.Length))
+            {
+                return new int[] { };
+            }
+
+            int actualLength = Math.Min(length, array.Length - startIndex);
+
+            int[] result = new int[actualLength];
+
+            for (int i = 0; i < actualLength; i++)
+            {
+                result[i] = array[startIndex + i];
+            }
+
+            return result;
         }
     }
 

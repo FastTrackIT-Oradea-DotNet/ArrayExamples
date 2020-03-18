@@ -7,7 +7,7 @@ namespace ArrayExamples
     {
         static void Main(string[] args)
         {
-            ReadVectorAndCalculateAvgElement();
+            ReadVectorAndExtractSubArray();
         }
 
         private static void ReadAndPrintVector()
@@ -56,6 +56,19 @@ namespace ArrayExamples
             int avg = ArrayHelper.Avg(array);
 
             Console.WriteLine($"Avg Element Is: {avg}");
+        }
+
+        private static void ReadVectorAndExtractSubArray()
+        {
+            int[] array = ConsoleHelper.ReadArrayFromConsole("Array");
+
+            int startIndex = ConsoleHelper.ReadNumber("Start Index=", 3, 0);
+
+            int length = ConsoleHelper.ReadNumber("Length=", 3, 0);
+
+            int[] subArray = ArrayHelper.CopyRange(array, startIndex, length);
+
+            ConsoleHelper.PrintArray("Sub Array", subArray);
         }
     }
 }
