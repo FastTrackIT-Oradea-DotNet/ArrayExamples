@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace ArrayExamples.Library
+namespace ArrayExamples
 {
     public static class ConsoleHelper
     {
