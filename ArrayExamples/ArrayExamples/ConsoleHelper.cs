@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArrayExamples.Library;
+using System;
 
 namespace ArrayExamples
 {
@@ -56,6 +57,46 @@ namespace ArrayExamples
             string arrayElements = string.Join(", ", array ?? new int[] { });
 
             Console.WriteLine($"{arrayName} = [{arrayElements}]");
+        }
+
+        public static int[,] ReadMatrixFromConsole(string matrixName)
+        {
+            int rowCount = ReadNumber($"{matrixName} Number of Rows=", 3, 0);
+            int colCount = ReadNumber($"{matrixName} Number of Columns=", 3, 0);
+
+            int[,] matrix = new int[rowCount, colCount];
+
+            for (int row = 0; row < rowCount; row++)
+            {
+                for (int col = 0; col < colCount; col++)
+                {
+                    matrix[row, col] = ReadNumber($"{matrixName} Element[{row},{col}]=", 3, 0);
+                }
+            }
+
+            return matrix;
+        }
+
+        public static void PrintMatrix(string matrixName, int[,] matrix)
+        {
+            int rowCount = MatrixHelper.GetRowsCount(matrix);
+            int colCount = MatrixHelper.GetColsCount(matrix);
+
+            Console.WriteLine($"{matrixName} ({rowCount} X {colCount}):");
+
+            for(int row = 0; row < rowCount; row++)
+            {
+                for (int col = 0; col < colCount; col++)
+                {
+                    Console.Write($"{matrix[row, col], 3}");
+                    if (col < colCount - 1)
+                    {
+                        Console.Write(", ");
+                    }
+                }
+
+                Console.WriteLine();
+            }
         }
     }
 }
