@@ -7,7 +7,7 @@ namespace ArrayExamples
     {
         static void Main(string[] args)
         {
-            ReadVectorAndRemoveSubArray();
+            ReadVectorAndExchangeSort();
         }
 
         private static void ReadAndPrintVector()
@@ -83,6 +83,26 @@ namespace ArrayExamples
 
             ConsoleHelper.PrintArray("Original Array", array);
             ConsoleHelper.PrintArray("New Array After Remove", newArray);
+        }
+
+        private static void ReadVectorAndBubbleSort()
+        {
+            int[] array = ConsoleHelper.ReadArrayFromConsole("Array");
+
+            int[] sortedArray = ArrayHelper.BubbleSort(array, SortDirection.Ascending);
+
+            ConsoleHelper.PrintArray("Original Array", array);
+            ConsoleHelper.PrintArray("Sorted Array", sortedArray);
+        }
+
+        private static void ReadVectorAndExchangeSort()
+        {
+            int[] array = ConsoleHelper.ReadArrayFromConsole("Array");
+
+            int[] sortedArray = ArrayHelper.ExchangeSort(array, SortDirection.Ascending);
+
+            ConsoleHelper.PrintArray("Original Array", array);
+            ConsoleHelper.PrintArray("Sorted Array", sortedArray);
         }
     }
 }
