@@ -122,7 +122,58 @@ namespace ArrayExamples.Library
                 {
                     result[resultIndex] = array[i];
                     resultIndex++;
-                }                
+                }
+            }
+
+            return result;
+        }
+
+        public static int[] BubbleSort(int[] array, SortDirection sortDirection)
+        {
+            if ((array ?? new int[] { }).Length == 0)
+            {
+                return new int[] { };
+            }
+
+            int[] result = CopyRange(array, 0, array.Length);
+
+            bool sortOk = false;
+
+            while (!sortOk)
+            {
+                sortOk = true;
+
+                for (int i = 0; i < result.Length - 1; i++)
+                {
+                    bool interchange = false;
+                    switch (sortDirection)
+                    {
+                        case SortDirection.Descending:
+                            if (result[i] < result[i + 1])
+                            {
+                                interchange = true;
+                            }
+                            break;
+
+                        case SortDirection.Ascending:
+                        default:
+                            if (result[i] > result[i + 1])
+                            {
+                                interchange = true;
+                            }
+                            break;
+                    }
+
+                    if (interchange)
+                    {
+                        int aux = result[i];
+                        result[i] = result[i + 1];
+                        result[i + 1] = aux;
+
+                        sortOk = false;
+                        break;
+                    }
+                }
             }
 
             return result;
