@@ -5,7 +5,7 @@ namespace ArrayExamples
 {
     public static class ConsoleHelper
     {
-        public static int ReadNumber(string message, int maxAttempts, int defaultValue)
+        public static int ReadNumber(string message, int maxAttempts, bool allowNegative, int defaultValue)
         {
             int attemptsCount = 1;
             bool isNumber = false;
@@ -17,7 +17,7 @@ namespace ArrayExamples
 
                 isNumber = int.TryParse(text, out int number);
 
-                if (isNumber)
+                if (isNumber && (allowNegative || (number >= 0)))
                 {
                     return number;
                 }
@@ -40,13 +40,13 @@ namespace ArrayExamples
 
         public static int[] ReadArrayFromConsole(string arrayName)
         {
-            int length = ReadNumber($"{arrayName} Length=", 3, 0);
+            int length = ReadNumber($"{arrayName} Length=", 3, false, 0);
 
             int[] array = new int[length];
 
             for (int i = 0; i < length; i++)
             {
-                array[i] = ReadNumber($"{arrayName} Element[{i}]=", 3, 0);
+                array[i] = ReadNumber($"{arrayName} Element[{i}]=", 3, true, 0);
             }
 
             return array;
@@ -61,8 +61,8 @@ namespace ArrayExamples
 
         public static int[,] ReadMatrixFromConsole(string matrixName)
         {
-            int rowCount = ReadNumber($"{matrixName} Number of Rows=", 3, 0);
-            int colCount = ReadNumber($"{matrixName} Number of Columns=", 3, 0);
+            int rowCount = ReadNumber($"{matrixName} Number of Rows=", 3, false, 0);
+            int colCount = ReadNumber($"{matrixName} Number of Columns=", 3, false, 0);
 
             int[,] matrix = new int[rowCount, colCount];
 
@@ -70,7 +70,7 @@ namespace ArrayExamples
             {
                 for (int col = 0; col < colCount; col++)
                 {
-                    matrix[row, col] = ReadNumber($"{matrixName} Element[{row},{col}]=", 3, 0);
+                    matrix[row, col] = ReadNumber($"{matrixName} Element[{row},{col}]=", 3, true, 0);
                 }
             }
 

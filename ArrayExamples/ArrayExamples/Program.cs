@@ -62,9 +62,9 @@ namespace ArrayExamples
         {
             int[] array = ConsoleHelper.ReadArrayFromConsole("Array");
 
-            int startIndex = ConsoleHelper.ReadNumber("Start Index=", 3, 0);
+            int startIndex = ConsoleHelper.ReadNumber("Start Index=", 3, false, 0);
 
-            int length = ConsoleHelper.ReadNumber("Length=", 3, 0);
+            int length = ConsoleHelper.ReadNumber("Length=", 3, false, 0);
 
             int[] subArray = ArrayHelper.CopyRange(array, startIndex, length);
 
@@ -75,9 +75,9 @@ namespace ArrayExamples
         {
             int[] array = ConsoleHelper.ReadArrayFromConsole("Array");
 
-            int startIndex = ConsoleHelper.ReadNumber("Start Index=", 3, 0);
+            int startIndex = ConsoleHelper.ReadNumber("Start Index=", 3, false, 0);
 
-            int length = ConsoleHelper.ReadNumber("Length=", 3, 0);
+            int length = ConsoleHelper.ReadNumber("Length=", 3, false, 0);
 
             int[] newArray = ArrayHelper.RemoveRange(array, startIndex, length);
 
