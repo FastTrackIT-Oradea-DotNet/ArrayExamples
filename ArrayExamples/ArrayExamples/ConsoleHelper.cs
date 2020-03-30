@@ -23,7 +23,8 @@ namespace ArrayExamples
                 }
                 else
                 {
-                    Console.WriteLine($"'{text}' is not a number, try again ({maxAttempts - attemptsCount} attempts remaining) ...");
+                    isNumber = false;
+                    Console.WriteLine($"'{text}' is not a {(allowNegative ? "number" : "positive number")}, try again ({maxAttempts - attemptsCount} attempts remaining) ...");
                 }
 
                 attemptsCount++;
